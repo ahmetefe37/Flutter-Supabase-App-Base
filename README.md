@@ -503,12 +503,6 @@ APP_ENV=production
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
-
-- 📧 Email: your-email@example.com
-- 💬 Discord: [Your Discord Server](https://discord.gg/your-server)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/supa_sample/issues)
-
 ## 🙏 Acknowledgments
 
 - [Flutter Team](https://flutter.dev) for the amazing framework
@@ -520,4 +514,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Happy Coding! 🚀**
 
-Made with ❤️ by [Your Name](https://github.com/your-username)
+Made with ❤️ by ahmet efe (https://github.com/ahmetefe37)
