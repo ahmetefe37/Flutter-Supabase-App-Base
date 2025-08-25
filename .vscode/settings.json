@@ -1,0 +1,26 @@
+{
+  "dart.flutterSdkPath": "",
+  "dart.lineLength": 100,
+  "dart.insertArgumentPlaceholders": false,
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.warnWhenEditingFilesOutsideWorkspace": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "files.associations": {
+    "*.dart": "dart"
+  },
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/build": true,
+    "**/.dart_tool": true,
+    "**/pubspec.lock": true
+  }
+}
