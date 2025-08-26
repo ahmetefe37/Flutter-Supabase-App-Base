@@ -30,6 +30,20 @@ dependencies:
   shared_preferences: ^2.2.2
   intl: ^0.20.2
 
+  # Dosya ve izin yönetimi
+  permission_handler: ^11.3.0
+  file_picker: ^6.1.1
+  image_picker: ^1.0.7
+  path_provider: ^2.1.2
+
+  # HTTP istekleri
+  http: ^1.2.0
+  dio: ^5.4.0 # Gelişmiş HTTP client
+
+  # Dosya operasyonları
+  path: ^1.8.3
+  mime: ^1.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
