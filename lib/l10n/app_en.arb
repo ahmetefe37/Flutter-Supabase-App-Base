@@ -1,0 +1,120 @@
+{
+  "@@locale": "en",
+  "@@context": "Application Localization",
+  
+  "appName": "Supa Sample",
+  "@appName": {
+    "description": "The application name"
+  },
+  
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "name": "Name",
+  "forgotPassword": "Forgot Password",
+  "resetPassword": "Reset Password",
+  "signOut": "Sign Out",
+  "profile": "Profile",
+  "settings": "Settings",
+  "home": "Home",
+  
+  "emailHint": "Enter your email",
+  "passwordHint": "Enter your password",
+  "nameHint": "Enter your name",
+  
+  "loginTitle": "Welcome Back",
+  "loginSubtitle": "Sign in to your account",
+  "registerTitle": "Create Account",
+  "registerSubtitle": "Create a new account",
+  
+  "validationEmailRequired": "Email is required",
+  "validationEmailInvalid": "Enter a valid email address",
+  "validationPasswordRequired": "Password is required",
+  "validationPasswordTooShort": "Password must be at least 6 characters",
+  "validationPasswordMismatch": "Passwords do not match",
+  "validationNameRequired": "Name is required",
+  
+  "errorsGeneral": "An error occurred. Please try again.",
+  "errorsNetwork": "Check your internet connection.",
+  "errorsInvalidCredentials": "Invalid email or password",
+  "errorsUserNotFound": "User not found",
+  "errorsEmailAlreadyExists": "Email already exists",
+  "errorsWeakPassword": "Password is too weak",
+  
+  "successLoginSuccess": "Login successful",
+  "successRegisterSuccess": "Registration successful",
+  "successProfileUpdated": "Profile updated successfully",
+  "successPasswordResetSent": "Password reset email sent",
+  
+  "buttonsSave": "Save",
+  "buttonsCancel": "Cancel",
+  "buttonsDelete": "Delete",
+  "buttonsEdit": "Edit",
+  "buttonsUpdate": "Update",
+  "buttonsUpload": "Upload",
+  "buttonsDownload": "Download",
+  "buttonsRetry": "Retry",
+  "buttonsOk": "OK",
+  "buttonsYes": "Yes",
+  "buttonsNo": "No",
+  
+  "greetingWithName": "Hello, {name}!",
+  "@greetingWithName": {
+    "description": "Greeting message with user name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+  
+  "itemCount": "{count, plural, =0{No items} =1{One item} other{{count} items}}",
+  "@itemCount": {
+    "description": "Number of items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  
+  "lastSeen": "Last seen {date}",
+  "@lastSeen": {
+    "description": "Last seen date",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  },
+  
+  "fileSize": "{size} MB",
+  "@fileSize": {
+    "placeholders": {
+      "size": {
+        "type": "double",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  
+  "languagesEn": "English",
+  "languagesTr": "Türkçe",
+  "languagesEs": "Español",
+  "languagesFr": "Français",
+  "languagesDe": "Deutsch",
+  
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System"
+}

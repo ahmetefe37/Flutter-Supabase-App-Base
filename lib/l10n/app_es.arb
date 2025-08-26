@@ -1,0 +1,73 @@
+{
+  "@@locale": "es",
+  
+  "appName": "Supa Sample",
+  "welcome": "Bienvenido",
+  "login": "Iniciar Sesión",
+  "register": "Registrarse",
+  "email": "Correo Electrónico",
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar Contraseña",
+  "name": "Nombre",
+  "forgotPassword": "Olvidé mi Contraseña",
+  "resetPassword": "Restablecer Contraseña",
+  "signOut": "Cerrar Sesión",
+  "profile": "Perfil",
+  "settings": "Configuración",
+  "home": "Inicio",
+  
+  "emailHint": "Ingrese su correo electrónico",
+  "passwordHint": "Ingrese su contraseña",
+  "nameHint": "Ingrese su nombre",
+  
+  "loginTitle": "Bienvenido de Nuevo",
+  "loginSubtitle": "Inicie sesión en su cuenta",
+  "registerTitle": "Crear Cuenta",
+  "registerSubtitle": "Cree una nueva cuenta",
+  
+  "validationEmailRequired": "El correo electrónico es requerido",
+  "validationEmailInvalid": "Ingrese un correo electrónico válido",
+  "validationPasswordRequired": "La contraseña es requerida",
+  "validationPasswordTooShort": "La contraseña debe tener al menos 6 caracteres",
+  "validationPasswordMismatch": "Las contraseñas no coinciden",
+  "validationNameRequired": "El nombre es requerido",
+  
+  "errorsGeneral": "Ocurrió un error. Por favor, inténtelo de nuevo.",
+  "errorsNetwork": "Verifique su conexión a internet.",
+  "errorsInvalidCredentials": "Correo electrónico o contraseña inválidos",
+  "errorsUserNotFound": "Usuario no encontrado",
+  "errorsEmailAlreadyExists": "El correo electrónico ya está registrado",
+  "errorsWeakPassword": "La contraseña es muy débil",
+  
+  "successLoginSuccess": "Inicio de sesión exitoso",
+  "successRegisterSuccess": "Registro exitoso",
+  "successProfileUpdated": "Perfil actualizado exitosamente",
+  "successPasswordResetSent": "Correo de restablecimiento de contraseña enviado",
+  
+  "buttonsSave": "Guardar",
+  "buttonsCancel": "Cancelar",
+  "buttonsDelete": "Eliminar",
+  "buttonsEdit": "Editar",
+  "buttonsUpdate": "Actualizar",
+  "buttonsUpload": "Subir",
+  "buttonsDownload": "Descargar",
+  "buttonsRetry": "Reintentar",
+  "buttonsOk": "Aceptar",
+  "buttonsYes": "Sí",
+  "buttonsNo": "No",
+  
+  "greetingWithName": "¡Hola, {name}!",
+  "itemCount": "{count, plural, =0{Sin elementos} =1{Un elemento} other{{count} elementos}}",
+  "lastSeen": "Visto por última vez {date}",
+  "fileSize": "{size} MB",
+  
+  "languagesEn": "Inglés",
+  "languagesTr": "Turco",
+  "languagesEs": "Español",
+  "languagesFr": "Francés",
+  "languagesDe": "Alemán",
+  
+  "themeLight": "Claro",
+  "themeDark": "Oscuro",
+  "themeSystem": "Sistema"
+}

@@ -1,0 +1,73 @@
+{
+  "@@locale": "fr",
+  
+  "appName": "Supa Sample",
+  "welcome": "Bienvenue",
+  "login": "Se Connecter",
+  "register": "S'inscrire",
+  "email": "E-mail",
+  "password": "Mot de Passe",
+  "confirmPassword": "Confirmer le Mot de Passe",
+  "name": "Nom",
+  "forgotPassword": "Mot de Passe Oublié",
+  "resetPassword": "Réinitialiser le Mot de Passe",
+  "signOut": "Se Déconnecter",
+  "profile": "Profil",
+  "settings": "Paramètres",
+  "home": "Accueil",
+  
+  "emailHint": "Entrez votre e-mail",
+  "passwordHint": "Entrez votre mot de passe",
+  "nameHint": "Entrez votre nom",
+  
+  "loginTitle": "Bon Retour",
+  "loginSubtitle": "Connectez-vous à votre compte",
+  "registerTitle": "Créer un Compte",
+  "registerSubtitle": "Créez un nouveau compte",
+  
+  "validationEmailRequired": "L'e-mail est requis",
+  "validationEmailInvalid": "Entrez une adresse e-mail valide",
+  "validationPasswordRequired": "Le mot de passe est requis",
+  "validationPasswordTooShort": "Le mot de passe doit contenir au moins 6 caractères",
+  "validationPasswordMismatch": "Les mots de passe ne correspondent pas",
+  "validationNameRequired": "Le nom est requis",
+  
+  "errorsGeneral": "Une erreur s'est produite. Veuillez réessayer.",
+  "errorsNetwork": "Vérifiez votre connexion internet.",
+  "errorsInvalidCredentials": "E-mail ou mot de passe invalide",
+  "errorsUserNotFound": "Utilisateur non trouvé",
+  "errorsEmailAlreadyExists": "L'e-mail est déjà enregistré",
+  "errorsWeakPassword": "Le mot de passe est trop faible",
+  
+  "successLoginSuccess": "Connexion réussie",
+  "successRegisterSuccess": "Inscription réussie",
+  "successProfileUpdated": "Profil mis à jour avec succès",
+  "successPasswordResetSent": "E-mail de réinitialisation du mot de passe envoyé",
+  
+  "buttonsSave": "Enregistrer",
+  "buttonsCancel": "Annuler",
+  "buttonsDelete": "Supprimer",
+  "buttonsEdit": "Modifier",
+  "buttonsUpdate": "Mettre à Jour",
+  "buttonsUpload": "Télécharger",
+  "buttonsDownload": "Télécharger",
+  "buttonsRetry": "Réessayer",
+  "buttonsOk": "OK",
+  "buttonsYes": "Oui",
+  "buttonsNo": "Non",
+  
+  "greetingWithName": "Bonjour, {name}!",
+  "itemCount": "{count, plural, =0{Aucun élément} =1{Un élément} other{{count} éléments}}",
+  "lastSeen": "Vu pour la dernière fois {date}",
+  "fileSize": "{size} MB",
+  
+  "languagesEn": "Anglais",
+  "languagesTr": "Turc",
+  "languagesEs": "Espagnol",
+  "languagesFr": "Français",
+  "languagesDe": "Allemand",
+  
+  "themeLight": "Clair",
+  "themeDark": "Sombre",
+  "themeSystem": "Système"
+}

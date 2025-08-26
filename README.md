@@ -8,7 +8,9 @@ A production-ready Flutter template with Supabase integration, designed to accel
 - ✅ **Modern UI/UX** - Material Design 3 based clean interface
 - ✅ **State Management** - Robust state management with Riverpod
 - ✅ **Navigation** - Modern routing with Go Router
+- ✅ **Internationalization** - Multi-language support (EN, TR, ES, FR, DE)
 - ✅ **Responsive Design** - Adaptive layouts for all screen sizes
+- ✅ **File Management** - File upload/download with permission handling
 - ✅ **Error Handling** - Comprehensive error management
 - ✅ **Environment Config** - Secure configuration management
 - ✅ **Type Safety** - Full TypeScript-level type safety with Dart
@@ -22,6 +24,30 @@ A production-ready Flutter template with Supabase integration, designed to accel
 - Supabase account
 - Git
 - VS Code or Android Studio (recommended)
+
+## 📦 Key Dependencies
+
+This template includes the following key packages:
+
+**Core:**
+
+- `supabase_flutter` - Supabase integration
+- `flutter_riverpod` - State management
+- `go_router` - Navigation
+- `flutter_localizations` - Internationalization
+- `flutter_dotenv` - Environment configuration
+
+**UI & UX:**
+
+- `shared_preferences` - Local storage
+- `file_picker` - File selection
+- `image_picker` - Camera/gallery access
+- `permission_handler` - Device permissions
+
+**Development:**
+
+- `intl` - Internationalization utilities
+- `path_provider` - File system paths
 
 ## 🚀 Quick Start
 
@@ -75,6 +101,8 @@ APP_ENV=development
 3. Copy your Project URL and anon/public key
 4. Paste them into your `.env` file
 
+> 📋 **For detailed Supabase setup instructions**, including database tables, RLS policies, and SQL commands, see [Supabase Setup Guide](supabase_setup.md)
+
 ### 5. Run the App
 
 ```bash
@@ -93,14 +121,20 @@ lib/
 │   ├── constants/                  # Application constants
 │   │   ├── app_constants.dart      # General constants
 │   │   └── route_constants.dart    # Route definitions
+│   ├── providers/                  # Global providers
+│   │   └── localization_provider.dart # Language management
 │   ├── services/                   # External services
 │   │   ├── supabase_service.dart   # Supabase client wrapper
-│   │   └── storage_service.dart    # Local storage service
+│   │   ├── storage_service.dart    # Local storage service
+│   │   ├── localization_service.dart # Internationalization
+│   │   ├── file_service.dart       # File operations
+│   │   └── permission_service.dart # Device permissions
 │   ├── theme/                      # UI theming
 │   │   ├── app_colors.dart         # Color palette
 │   │   └── app_theme.dart          # Theme configuration
 │   └── utils/                      # Utility functions
-│       └── validators.dart         # Form validation
+│       ├── validators.dart         # Form validation
+│       └── helpers.dart            # Helper functions
 ├── features/                       # Feature modules
 │   ├── auth/                       # Authentication feature
 │   │   ├── models/                 # Data models
@@ -121,11 +155,19 @@ lib/
 │   └── profile/                    # Profile feature
 │       └── screens/
 │           └── profile_screen.dart
+├── l10n/                          # Localization files
+│   ├── app_en.arb                 # English translations
+│   ├── app_tr.arb                 # Turkish translations
+│   ├── app_es.arb                 # Spanish translations
+│   ├── app_fr.arb                 # French translations
+│   ├── app_de.arb                 # German translations
+│   └── generated/                 # Auto-generated localization
 ├── shared/                         # Shared components
 │   └── widgets/                    # Common widgets
 │       ├── custom_app_bar.dart
 │       ├── error_widget.dart
-│       └── loading_widget.dart
+│       ├── loading_widget.dart
+│       └── file_picker_widget.dart
 └── main.dart                       # Application entry point
 ```
 
@@ -245,6 +287,8 @@ lib/
 
 ### Step 3: Database Integration
 
+> 📋 **For complete database setup**, see [Supabase Setup Guide](supabase_setup.md) which includes detailed SQL commands, RLS policies, and table structures.
+
 #### Setting up Supabase Tables
 
 1. **Create Table in Supabase**
@@ -291,7 +335,42 @@ lib/
    }
    ```
 
-### Step 4: Advanced Features
+### Step 4: Internationalization
+
+This template includes built-in support for multiple languages:
+
+#### Supported Languages
+
+- 🇺🇸 English (en)
+- 🇹🇷 Turkish (tr)
+- 🇪🇸 Spanish (es)
+- 🇫🇷 French (fr)
+- 🇩🇪 German (de)
+
+#### How to Use
+
+1. **Language Selection**: Users can change language from the dropdown in the top-right corner of the home screen
+2. **Automatic Detection**: The app automatically detects and uses the device's language if supported
+3. **Persistent Storage**: Language preference is saved and restored on app restart
+
+#### Adding New Languages
+
+1. Create a new ARB file in `lib/l10n/` (e.g., `app_ja.arb` for Japanese)
+2. Copy the structure from `app_en.arb` and translate the values
+3. Add the new locale to `LocalizationService.supportedLocales`
+4. Run `flutter gen-l10n` to generate the new translations
+5. Update language selector UI if needed
+
+#### Using Translations in Code
+
+```dart
+// In any widget
+final l10n = AppLocalizations.of(context)!;
+Text(l10n.welcome); // Shows translated welcome message
+Text(l10n.greetingWithName.replaceAll('{name}', userName)); // With parameters
+```
+
+### Step 5: Advanced Features
 
 #### Real-time Subscriptions
 
@@ -348,6 +427,53 @@ Future<String> uploadFile(File file, String fileName) async {
 }
 ```
 
+#### File Management
+
+The template includes comprehensive file management:
+
+```dart
+// Pick image from gallery
+final file = await FileService.instance.pickImageFromGallery();
+
+// Pick image from camera
+final file = await FileService.instance.pickImageFromCamera();
+
+// Pick any file type
+final file = await FileService.instance.pickFile();
+
+// Handle permissions automatically
+if (!await PermissionService.instance.requestStoragePermission()) {
+  // Permission denied
+}
+```
+
+## 🌐 Localization
+
+### Supported Languages
+
+- 🇺🇸 **English** (en-US) - Default
+- 🇹🇷 **Turkish** (tr-TR)
+- 🇪🇸 **Spanish** (es-ES)
+- 🇫🇷 **French** (fr-FR)
+- 🇩🇪 **German** (de-DE)
+
+### Features
+
+- **Dynamic Language Switching**: Change language without app restart
+- **Device Language Detection**: Automatically uses device language if supported
+- **Persistent Language Preference**: Remembers user's language choice
+- **Live Preview**: Test all translations in the home screen
+- **Type-Safe Translations**: Generated code with compile-time checks
+
+### How It Works
+
+1. ARB files in `lib/l10n/` contain translations
+2. Flutter generates type-safe `AppLocalizations` class
+3. Language selector in home screen allows instant switching
+4. `LocalizationService` handles persistence and state management
+
+````
+
 ## 🎨 Customizing UI
 
 ### Adding Custom Colors
@@ -359,7 +485,7 @@ class AppColors {
   static const Color customPrimary = Color(0xFF6366F1);
   static const Color customSecondary = Color(0xFF06B6D4);
 }
-```
+````
 
 ### Creating Custom Widgets
 

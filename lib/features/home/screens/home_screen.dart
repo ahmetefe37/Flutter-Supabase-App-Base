@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
 import '../../../core/constants/app_constants.dart';
+import '../../../core/providers/localization_provider.dart';
+import '../../../core/services/localization_service.dart';
+import '../../../l10n/generated/app_localizations.dart';
 import '../../../shared/widgets/custom_app_bar.dart';
 import '../../auth/providers/auth_provider.dart';
 
@@ -11,15 +15,17 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentUser = ref.watch(currentUserProvider);
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Ana Sayfa',
+        title: l10n.home,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () => context.push('/profile'),
-          ),
+          // Language Selector
+          const LanguageSelector(),
+          const SizedBox(width: 8),
+          // Profile button
+          IconButton(icon: const Icon(Icons.person), onPressed: () => context.push('/profile')),
         ],
       ),
       body: Padding(
@@ -34,16 +40,13 @@ class HomeScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Hoş Geldiniz! 👋',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
+                    Text('${l10n.welcome} 👋', style: Theme.of(context).textTheme.headlineSmall),
                     const SizedBox(height: 8),
                     Text(
-                      currentUser?.name ?? currentUser?.email ?? 'Kullanıcı',
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      l10n.greetingWithName(currentUser?.name ?? currentUser?.email ?? 'User'),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleLarge?.copyWith(color: Theme.of(context).primaryColor),
                     ),
                     const SizedBox(height: 16),
                     Text(
@@ -54,51 +57,81 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
 
-            // Features Grid
-            Text(
-              'Özellikler',
-              style: Theme.of(context).textTheme.headlineSmall,
+            const SizedBox(height: 20),
+
+            // Language Test Section
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.language, color: Theme.of(context).primaryColor),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Dil Testi / Language Test',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    _buildTestSection(context, l10n),
+                  ],
+                ),
+              ),
             ),
-            const SizedBox(height: 16),
 
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: [
-                  _buildFeatureCard(
-                    context,
-                    icon: Icons.security,
-                    title: 'Authentication',
-                    description: 'Supabase Auth entegrasyonu',
-                    color: Colors.blue,
-                  ),
-                  _buildFeatureCard(
-                    context,
-                    icon: Icons.person,
-                    title: 'Profil',
-                    description: 'Kullanıcı profil yönetimi',
-                    color: Colors.green,
-                    onTap: () => context.push('/profile'),
-                  ),
-                  _buildFeatureCard(
-                    context,
-                    icon: Icons.storage,
-                    title: 'Database',
-                    description: 'Supabase veritabanı',
-                    color: Colors.orange,
-                  ),
-                  _buildFeatureCard(
-                    context,
-                    icon: Icons.settings,
-                    title: 'Ayarlar',
-                    description: 'Uygulama ayarları',
-                    color: Colors.purple,
-                  ),
-                ],
+            const SizedBox(height: 20),
+
+            // Actions
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Hızlı İşlemler', style: Theme.of(context).textTheme.titleLarge),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () => context.push('/profile'),
+                            icon: const Icon(Icons.person),
+                            label: Text(l10n.profile),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () => context.push('/settings'),
+                            icon: const Icon(Icons.settings),
+                            label: Text(l10n.settings),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            const Spacer(),
+
+            // Sign Out Button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () => ref.read(authProvider.notifier).signOut(),
+                icon: const Icon(Icons.logout),
+                label: Text(l10n.signOut),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600,
+                  foregroundColor: Colors.white,
+                ),
               ),
             ),
           ],
@@ -107,50 +140,79 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildFeatureCard(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required String description,
-    required Color color,
-    VoidCallback? onTap,
-  }) {
-    return Card(
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
+  Widget _buildTestSection(BuildContext context, AppLocalizations l10n) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('• ${l10n.login} / ${l10n.register}'),
+      Text('• ${l10n.email}: ${l10n.emailHint}'),
+      Text('• ${l10n.password}: ${l10n.passwordHint}'),
+      const SizedBox(height: 8),
+      Text('• ${l10n.validationEmailRequired}'),
+      Text('• ${l10n.validationPasswordTooShort}'),
+      const SizedBox(height: 8),
+      Text('• ${l10n.successLoginSuccess}'),
+      Text('• ${l10n.errorsNetwork}'),
+      const SizedBox(height: 8),
+      Wrap(
+        spacing: 8,
+        children: [
+          Chip(label: Text(l10n.buttonsSave)),
+          Chip(label: Text(l10n.buttonsCancel)),
+          Chip(label: Text(l10n.buttonsUpdate)),
+        ],
+      ),
+    ],
+  );
+}
+
+class LanguageSelector extends ConsumerWidget {
+  const LanguageSelector({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentLocale = ref.watch(localizationProvider);
+    final localizationNotifier = ref.read(localizationProvider.notifier);
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Theme.of(context).colorScheme.outline.withOpacity(0.3)),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<Locale>(
+          value: currentLocale,
+          icon: const SizedBox.shrink(), // Hide default icon
+          elevation: 0,
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 14),
+          borderRadius: BorderRadius.circular(8),
+          items: LocalizationService.supportedLocales
+              .map(
+                (locale) => DropdownMenuItem<Locale>(
+                  value: locale,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        LocalizationService.instance.getLanguageFlag(locale.languageCode),
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        locale.languageCode.toUpperCase(),
+                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
                 ),
-                child: Icon(icon, color: color, size: 24),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                title,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.bodySmall,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
+              )
+              .toList(),
+          onChanged: (Locale? newLocale) {
+            if (newLocale != null) {
+              localizationNotifier.changeLanguage(newLocale);
+            }
+          },
         ),
       ),
     );

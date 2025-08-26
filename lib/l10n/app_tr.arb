@@ -1,0 +1,73 @@
+{
+  "@@locale": "tr",
+  
+  "appName": "Supa Sample",
+  "welcome": "Hoş Geldiniz",
+  "login": "Giriş Yap",
+  "register": "Kayıt Ol",
+  "email": "E-posta",
+  "password": "Şifre",
+  "confirmPassword": "Şifre Tekrar",
+  "name": "İsim",
+  "forgotPassword": "Şifremi Unuttum",
+  "resetPassword": "Şifre Sıfırla",
+  "signOut": "Çıkış Yap",
+  "profile": "Profil",
+  "settings": "Ayarlar",
+  "home": "Ana Sayfa",
+  
+  "emailHint": "E-posta adresinizi girin",
+  "passwordHint": "Şifrenizi girin",
+  "nameHint": "İsminizi girin",
+  
+  "loginTitle": "Hoş Geldiniz",
+  "loginSubtitle": "Hesabınıza giriş yapın",
+  "registerTitle": "Hesap Oluşturun",
+  "registerSubtitle": "Yeni bir hesap oluşturun",
+  
+  "validationEmailRequired": "E-posta adresi gereklidir",
+  "validationEmailInvalid": "Geçerli bir e-posta adresi girin",
+  "validationPasswordRequired": "Şifre gereklidir",
+  "validationPasswordTooShort": "Şifre en az 6 karakter olmalıdır",
+  "validationPasswordMismatch": "Şifreler eşleşmiyor",
+  "validationNameRequired": "İsim gereklidir",
+  
+  "errorsGeneral": "Bir hata oluştu. Lütfen tekrar deneyin.",
+  "errorsNetwork": "İnternet bağlantınızı kontrol edin.",
+  "errorsInvalidCredentials": "Geçersiz e-posta veya şifre",
+  "errorsUserNotFound": "Kullanıcı bulunamadı",
+  "errorsEmailAlreadyExists": "E-posta adresi zaten kayıtlı",
+  "errorsWeakPassword": "Şifre çok zayıf",
+  
+  "successLoginSuccess": "Giriş başarılı",
+  "successRegisterSuccess": "Kayıt başarılı",
+  "successProfileUpdated": "Profil başarıyla güncellendi",
+  "successPasswordResetSent": "Şifre sıfırlama e-postası gönderildi",
+  
+  "buttonsSave": "Kaydet",
+  "buttonsCancel": "İptal",
+  "buttonsDelete": "Sil",
+  "buttonsEdit": "Düzenle",
+  "buttonsUpdate": "Güncelle",
+  "buttonsUpload": "Yükle",
+  "buttonsDownload": "İndir",
+  "buttonsRetry": "Tekrar Dene",
+  "buttonsOk": "Tamam",
+  "buttonsYes": "Evet",
+  "buttonsNo": "Hayır",
+  
+  "greetingWithName": "Merhaba, {name}!",
+  "itemCount": "{count, plural, =0{Öğe yok} =1{Bir öğe} other{{count} öğe}}",
+  "lastSeen": "Son görülme {date}",
+  "fileSize": "{size} MB",
+  
+  "languagesEn": "İngilizce",
+  "languagesTr": "Türkçe",
+  "languagesEs": "İspanyolca",
+  "languagesFr": "Fransızca",
+  "languagesDe": "Almanca",
+  
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "themeSystem": "Sistem"
+}

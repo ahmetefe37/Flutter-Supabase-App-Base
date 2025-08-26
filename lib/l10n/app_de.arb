@@ -1,0 +1,73 @@
+{
+  "@@locale": "de",
+  
+  "appName": "Supa Sample",
+  "welcome": "Willkommen",
+  "login": "Anmelden",
+  "register": "Registrieren",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "confirmPassword": "Passwort Bestätigen",
+  "name": "Name",
+  "forgotPassword": "Passwort Vergessen",
+  "resetPassword": "Passwort Zurücksetzen",
+  "signOut": "Abmelden",
+  "profile": "Profil",
+  "settings": "Einstellungen",
+  "home": "Startseite",
+  
+  "emailHint": "Geben Sie Ihre E-Mail ein",
+  "passwordHint": "Geben Sie Ihr Passwort ein",
+  "nameHint": "Geben Sie Ihren Namen ein",
+  
+  "loginTitle": "Willkommen Zurück",
+  "loginSubtitle": "Melden Sie sich in Ihrem Konto an",
+  "registerTitle": "Konto Erstellen",
+  "registerSubtitle": "Erstellen Sie ein neues Konto",
+  
+  "validationEmailRequired": "E-Mail ist erforderlich",
+  "validationEmailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein",
+  "validationPasswordRequired": "Passwort ist erforderlich",
+  "validationPasswordTooShort": "Das Passwort muss mindestens 6 Zeichen haben",
+  "validationPasswordMismatch": "Passwörter stimmen nicht überein",
+  "validationNameRequired": "Name ist erforderlich",
+  
+  "errorsGeneral": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+  "errorsNetwork": "Überprüfen Sie Ihre Internetverbindung.",
+  "errorsInvalidCredentials": "Ungültige E-Mail oder Passwort",
+  "errorsUserNotFound": "Benutzer nicht gefunden",
+  "errorsEmailAlreadyExists": "E-Mail ist bereits registriert",
+  "errorsWeakPassword": "Das Passwort ist zu schwach",
+  
+  "successLoginSuccess": "Anmeldung erfolgreich",
+  "successRegisterSuccess": "Registrierung erfolgreich",
+  "successProfileUpdated": "Profil erfolgreich aktualisiert",
+  "successPasswordResetSent": "E-Mail zum Zurücksetzen des Passworts gesendet",
+  
+  "buttonsSave": "Speichern",
+  "buttonsCancel": "Abbrechen",
+  "buttonsDelete": "Löschen",
+  "buttonsEdit": "Bearbeiten",
+  "buttonsUpdate": "Aktualisieren",
+  "buttonsUpload": "Hochladen",
+  "buttonsDownload": "Herunterladen",
+  "buttonsRetry": "Wiederholen",
+  "buttonsOk": "OK",
+  "buttonsYes": "Ja",
+  "buttonsNo": "Nein",
+  
+  "greetingWithName": "Hallo, {name}!",
+  "itemCount": "{count, plural, =0{Keine Elemente} =1{Ein Element} other{{count} Elemente}}",
+  "lastSeen": "Zuletzt gesehen {date}",
+  "fileSize": "{size} MB",
+  
+  "languagesEn": "Englisch",
+  "languagesTr": "Türkisch",
+  "languagesEs": "Spanisch",
+  "languagesFr": "Französisch",
+  "languagesDe": "Deutsch",
+  
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "themeSystem": "System"
+}
